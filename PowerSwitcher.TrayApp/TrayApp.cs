@@ -79,6 +79,10 @@ namespace PowerSwitcher.TrayApp
             enableShortcutsToggleItem.Checked = configuration.Data.ShowOnShortcutSwitch;
             enableShortcutsToggleItem.Click += EnableShortcutsToggleItem_Click;
 
+            var enableBackgroundBlurItem = contextMenuSettings.MenuItems.Add(AppStrings.EnableBackgroundBlur);
+            enableBackgroundBlurItem.Checked = configuration.Data.EnableBackgroundBlur;
+            enableBackgroundBlurItem.Click += EnableBackgroundBlur_Click;
+
             var aboutItem = contextMenuRootItems.Add($"{AppStrings.About} ({Assembly.GetEntryAssembly().GetName().Version})");
             aboutItem.Click += About_Click;
 
@@ -127,6 +131,16 @@ namespace PowerSwitcher.TrayApp
 
             configuration.Data.ShowOnlyDefaultSchemas = !configuration.Data.ShowOnlyDefaultSchemas;
             onlyDefaultSchemasItem.Checked = configuration.Data.ShowOnlyDefaultSchemas;
+
+            configuration.Save();
+        }
+
+        private void EnableBackgroundBlur_Click(object sender, EventArgs e)
+        {
+            WF.MenuItem enableBackgroundBlurItem = (WF.MenuItem)sender;
+
+            configuration.Data.EnableBackgroundBlur = !configuration.Data.EnableBackgroundBlur;
+            enableBackgroundBlurItem.Checked = configuration.Data.EnableBackgroundBlur;
 
             configuration.Save();
         }

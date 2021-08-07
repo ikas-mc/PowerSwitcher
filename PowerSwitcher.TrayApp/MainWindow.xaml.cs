@@ -98,11 +98,20 @@ namespace PowerSwitcher.TrayApp
         #endregion
 
         #region ServicesUpdates
-        private void UpdateTheme()
+        public void UpdateBackgroundBlur()
         {
-            // Call UpdateTheme before UpdateWindowPosition in case sizes change with the theme.
-            ThemeService.UpdateThemeResources(Resources);
-            if (ThemeService.IsWindowTransparencyEnabled)
+            if (!ThemeService.IsWindowTransparencyEnabled) 
+            {
+                this.DisableBlur();
+            }
+
+            var enableBlur = false;
+            if (Application.Current is App app)
+            {
+                enableBlur = app.Configuration?.Data.EnableBackgroundBlur == true;
+            }
+
+            if (enableBlur)
             {
                 this.EnableBlur();
             }
@@ -110,6 +119,14 @@ namespace PowerSwitcher.TrayApp
             {
                 this.DisableBlur();
             }
+        }
+
+        private void UpdateTheme()
+        {
+            // Call UpdateTheme before UpdateWindowPosition in case sizes change with the theme.
+            ThemeService.UpdateThemeResources(Resources);
+            // Acrylic Background
+            UpdateBackgroundBlur();
         }
 
         private void UpdateWindowPosition()

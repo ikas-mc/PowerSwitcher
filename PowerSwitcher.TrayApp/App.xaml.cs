@@ -1,5 +1,6 @@
 ﻿using Petrroll.Helpers;
 using PowerSwitcher.TrayApp.Configuration;
+using PowerSwitcher.TrayApp.Extensions;
 using PowerSwitcher.TrayApp.Services;
 using System;
 using System.Globalization;
@@ -65,6 +66,12 @@ namespace PowerSwitcher.TrayApp
             {
                 if (Configuration.Data.ShowOnShortcutSwitch) { registerHotkeyFromConfiguration(); }
                 else { unregisterHotkeyFromConfiguration(); }
+            }
+            else if (e.PropertyName == nameof(PowerSwitcherSettings.EnableBackgroundBlur))
+            {
+                if (this.MainWindow is MainWindow mainWindow) {
+                    mainWindow.UpdateBackgroundBlur();
+                }
             }
         }
 

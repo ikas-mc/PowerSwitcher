@@ -129,6 +129,9 @@
   <data name="AutomaticOnOffACSwitch" xml:space="preserve">
     <value>Automaticly change schema when on AC</value>
   </data>
+  <data name="EnableBackgroundBlur" xml:space="preserve">
+    <value>Enable acrylic background </value>
+  </data>
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
   </data>

@@ -25,5 +25,8 @@ namespace PowerSwitcher.TrayApp.Configuration
         bool showOnlyDefaultSchemas = false;
         public bool ShowOnlyDefaultSchemas { get { return showOnlyDefaultSchemas; } set { showOnlyDefaultSchemas = value; RaisePropertyChangedEvent(nameof(ShowOnlyDefaultSchemas)); } }
 
+        bool enableBackgroundBlur = false;
+        public bool EnableBackgroundBlur { get { return enableBackgroundBlur; } set { enableBackgroundBlur = value; RaisePropertyChangedEvent(nameof(EnableBackgroundBlur)); } }
+
     }
 }

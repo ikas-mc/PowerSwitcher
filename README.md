@@ -1,3 +1,8 @@
+### Note:
+This fork add a setting to disable blur background for windows 11   
+why: https://github.com/File-New-Project/EarTrumpet/issues/349
+
+
 ### About:
 PowerPlanSwitcher is a simple app that allows you to quickly switch between power plan schemas from application tray. In addition to a manual schemas switching it also supports an automatic switch when AC adapter gets connected/disconnected. 
 
